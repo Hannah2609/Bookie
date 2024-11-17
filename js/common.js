@@ -10,3 +10,4 @@ export const handleAPIError = function(response) {
 export const handleAPIResponseError = (error = 'Generic error') => {
     alert('There was an error: ' + error);
 }
+

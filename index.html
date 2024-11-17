@@ -9,34 +9,48 @@
 </head>
 <body>
     <header>
-        <nav class="navbar">
+        <nav id="navbar">
             <div class="navbar-left">
                 <img src="img/logo.svg" alt="logo">
-                <a href="#" class="">Books</a>
+                <a href="books.html" class="nav-link">Books</a>
             </div>
             <div class="navbar-right">
-                <button class="border-btn">Login</button>
-                <button class="hidden"> 
+                <div>
+                <a href="login.html" class="border-btn">Login</a>
+                <a href="profile.html" class="hidden"> 
                     <img src="img/profile.svg" alt="profile">
                     <p>Profile</p>
-                </button>
-            <div class="navbar-burger-menu hidden">
+                </a>
+            </div>
+            <div class="navbar-burger-menu">
                 <div class="burger-menu" onclick="toggleMenu()">
                     <div class="line"></div>
                     <div class="line"></div>
                     <div class="line"></div>
                 </div>
                 <div class="nav-links">
-                    <a href="#" class="nav-link">Books</a>
-                    <a href="#" class="nav-link">Authors</a>
+                    <a href="books.html" class="nav-link">Books</a>
+                    <a href="index.html" class="nav-link">Authors</a>
                 </div>
             </div>  
         </div>
         </nav>
     </header>
     <main>
-        <h1>Hi welcome to bookie</h1>
-        <p>hiiiii</p>
+    <section id="hero">
+        <div class="hero-text">
+            <h1>
+                Find your next book here
+            </h1>
+            <p>
+                Your online bookstore - borrow and read all the books the world has to offer!
+            </p>
+            <a href="books.html" class="filled-btn">
+                Explore books
+            </a>
+        </div>
+        <img src="img/hero.png" alt="hero">
+    </section>
     </main>
     <footer></footer>
 </body>
