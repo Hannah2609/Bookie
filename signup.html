@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/styles.css">    
     <script src="js/script.js" defer></script>
-    <title>Login</title>
+    <script src="js/signup.js" type="module"></script>
+    <title>signup</title>
 </head>
 <body>
     <header>
@@ -47,11 +48,15 @@
         </div>
         <div class="form">
             <h2>Create an account</h2>
-            <form id="login-form">
-                    <input id="name" type="text" placeholder="Name" required>
+            <form id="signup-form">
+                    <input id="firstName" type="text" placeholder="First Name" required>
+                    <input id="lastName" type="text" placeholder="Last Name" required>
                     <input id="email" type="email" placeholder="Email" required>
+                    <input id="address" type="text" placeholder="address" required>
+                    <input id="phoneNumber" type="text" placeholder="phone number" required>
+                    <input id="birthDate" type="date" placeholder="Birthday" required>
                     <input id="password" type="password" placeholder="Password" required>
-                    <input id="repeat-password" type="password" placeholder="Repeat password" required>
+                    <input id="repeatPassword" type="password" placeholder="Repeat password" required>
                 <button class="filled-btn" type="submit">Sign up</button>
             </form>
             <p>Already have an account? <a href="login.html">Login</a></p>
