@@ -19,32 +19,32 @@
             </div>
             <div class="navbar-right">
                 <div>
-                <a href="login.html" class="border-btn">Login</a>
-                <a href="profile.html" class="hidden"> 
-                    <img src="img/profile.svg" alt="profile">
-                    <p>Profile</p>
-                </a>
+                    <a href="login.html" class="border-btn">Login</a>
+                    <a href="profile.html" class="hidden">
+                        <img src="img/profile.svg" alt="profile">
+                        <p>Profile</p>
+                    </a>
+                </div>
+                <div class="navbar-burger-menu">
+                    <div class="burger-menu" onclick="toggleMenu()">
+                        <div class="line"></div>
+                        <div class="line"></div>
+                        <div class="line"></div>
+                    </div>
+                    <div class="nav-links">
+                        <a href="books.html" class="nav-link">Books</a>
+                        <a href="index.html" class="nav-link">Authors</a>
+                    </div>
+                </div>
             </div>
-            <div class="navbar-burger-menu">
-                <div class="burger-menu" onclick="toggleMenu()">
-                    <div class="line"></div>
-                    <div class="line"></div>
-                    <div class="line"></div>
-                </div>
-                <div class="nav-links">
-                    <a href="books.html" class="nav-link">Books</a>
-                    <a href="index.html" class="nav-link">Authors</a>
-                </div>
-            </div>  
-        </div>
         </nav>
     </header>
     <main>
         <h1>Explore books</h1>
-        <section>
-            <section id="books"></section>
-            <button id="show-more">Show More</button>
-        </section>
+        <section id="books"></section>
+        <div id="btn-container">
+            <button id="show-more" class="filled-btn">Show More</button>
+        </div>
     </main>
 </body>
 

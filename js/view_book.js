@@ -1,12 +1,19 @@
 import { baseUrl, handleAPIError } from './common.js';
 
 const bookInfoSection = document.querySelector('#book-info');
+const authorBooksSection = document.querySelector('#author-books');
 
-let bookID = new URLSearchParams(window.location.search);
-bookID = bookID.get('id');
+let bookID = new URLSearchParams(window.location.search).get('id');
 
+// Fetch and display the current book's details and books by the same author
 const viewBook = (book) => {
-    let bookInfo = `
+    displayBookInfo(book);
+    fetchBooksByAuthor(book.author);
+};
+
+// Display the current book's information
+const displayBookInfo = (book) => {
+    bookInfoSection.innerHTML = `
         <img src="${book.cover}" alt="${book.title}">
         <section>
             <div id="titles">
@@ -15,28 +22,63 @@ const viewBook = (book) => {
                 <p>E-book</p>
             </div>
             <div id="released">
-                <p>Released:</p>
-                <p>${book.publishing_year}</+>
+                <p>Released: ${book.publishing_year}</p>
             </div>
             <div id="published_by">
-                <p>Published by:</p>
-                <p>${book.publishing_company}</p>
+                <p>Published by: ${book.publishing_company}</p>
             </div>
             <button>Loan Book</button>
         </section>
-            
     `;
-    
-    bookInfoSection.innerHTML = bookInfo; 
 };
 
+// Fetch books by the same author
+const fetchBooksByAuthor = (authorName) => {
+    fetch(`${baseUrl}/authors`)
+        .then(handleAPIError)
+        .then(authors => {
+            const author = authors.find(a => a.author_name.toLowerCase() === authorName.toLowerCase());
+            if (!author) throw new Error('Author not found');
+            return fetch(`${baseUrl}/books?a=${author.author_id}`);
+        })
+        .then(handleAPIError)
+        .then(books => {
+            const booksByAuthor = books.slice(0, 5);
+            displayAuthorBooks(booksByAuthor);
+        })
+        .catch((error) => {
+            authorBooksSection.innerHTML = `
+                <h3>Error</h3>
+                <p>Could not fetch books by this author.</p>
+                <p class="error">${error}</p>
+            `;
+        });
+};
+
+// Display books by the same author in the DOM
+const displayAuthorBooks = (books) => {
+    authorBooksSection.innerHTML = books.length > 0 ? `
+        <h3>More Books by ${books[0].author}</h3>
+        <div class="book-cards">
+            ${books.map(book => `
+                <div class="book-card">
+                    <h4>${book.title}</h4>
+                    <p>${book.publishing_year}</p>
+                    <a href="view_book.html?id=${book.book_id}" class="view-book-btn">View Details</a>
+                </div>
+            `).join('')}
+        </div>
+    ` : `<p>No other books found by this author.</p>`;
+};
+
+// Fetch the current book details
 fetch(`${baseUrl}/books/${bookID}`)
-.then(handleAPIError)
-.then(viewBook)
-.catch((error) => {
-    bookInfoSection.innerHTML = `
-        <h3>Error</h3>
-        <p>Dear user, we are truly sorry to inform that there was an error while getting the data</p>
-        <p class="error">${error}</p>
-    `;
-})
+    .then(handleAPIError)
+    .then(viewBook)
+    .catch((error) => {
+        bookInfoSection.innerHTML = `
+            <h3>Error</h3>
+            <p>Sorry, there was an error loading the book data.</p>
+            <p class="error">${error}</p>
+        `;
+    });
