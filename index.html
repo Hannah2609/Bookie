@@ -3,12 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">    
+    <script src="js/script.js" defer></script>
     <title>Bookie</title>
 </head>
 <body>
-    <header></header>
+    <header>
+        <nav class="navbar">
+            <div class="navbar-left">
+                <img src="img/logo.svg" alt="logo">
+                <a href="#" class="">Books</a>
+            </div>
+            <div class="navbar-right">
+                <button class="border-btn">Login</button>
+                <button class="hidden"> 
+                    <img src="img/profile.svg" alt="profile">
+                    <p>Profile</p>
+                </button>
+            <div class="navbar-burger-menu hidden">
+                <div class="burger-menu" onclick="toggleMenu()">
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                </div>
+                <div class="nav-links">
+                    <a href="#" class="nav-link">Books</a>
+                    <a href="#" class="nav-link">Authors</a>
+                </div>
+            </div>  
+        </div>
+        </nav>
+    </header>
     <main>
         <h1>Hi welcome to bookie</h1>
+        <p>hiiiii</p>
     </main>
     <footer></footer>
 </body>
