@@ -50,17 +50,14 @@
                 </nav>
             </div>
             <div>
-                <div>
-                    <h2>First name + last name</h2>
-                    <p>user_name</p>
-                    <p>user_email</p>
-                    <p>user_email</p>
-                    <p>adress</p>
-                    <p>phone number</p>
-                    <p>birthday</p>
-                    <p>Member since: </p>
-                </div>
-                <button class="filled-btn" onclick="signOut()">Sign out</button>
+                <div class="profile-edit">
+                    <h2>Edit your information</h2>
+                    <form id="login-form">
+                        <input id="editEmail" type="text" placeholder="Email">
+                        <input id="editPhone" type="text" placeholder="phone number">
+                        <input id="editAdrress" type="text" placeholder="Address">
+                        <button class="filled-btn" type="submit">Save information</button>
+                    </form>
             </div>
         </section>
 
