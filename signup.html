@@ -38,7 +38,7 @@
         </nav>
     </header>
     <main>
-        <section class="container">
+        <section id="container-form">
         <div class="text-box"> 
             <!-- bg image here -->
             <div class="overlay">
@@ -46,15 +46,20 @@
                 <h1>Sign up to become a bookie!</h1>
             </div>
         </div>
-        <div class="form">
+        <div id="form">
             <h2>Create an account</h2>
             <form id="signup-form">
+                <div class="input-group">
                     <input id="firstName" type="text" placeholder="First Name" required>
                     <input id="lastName" type="text" placeholder="Last Name" required>
+                </div>
                     <input id="email" type="email" placeholder="Email" required>
                     <input id="address" type="text" placeholder="address" required>
                     <input id="phoneNumber" type="text" placeholder="phone number" required>
-                    <input id="birthDate" type="date" placeholder="Birthday" required>
+                <div class="input-group">
+                    <label for="birthDate">Date of birth</label>
+                    <input id="birthDate" type="date" placeholder="Birthday" required>   
+                </div>
                     <input id="password" type="password" placeholder="Password" required>
                     <input id="repeatPassword" type="password" placeholder="Repeat password" required>
                 <button class="filled-btn" type="submit">Sign up</button>

@@ -2,10 +2,11 @@
 
 
 :root {
-    --color-primary: #130F26;
+    --color-primary: #130f26;
     --color-secondary: #F0EADD;
     --color-tertiary: #FBF8F3;
     --color-transparrent: transparrent;
+    --color-overlay: rgba(19, 15, 38, 0.4);
 
     --font-header: "Roboto Serif";
     --font-text: "Roboto";
