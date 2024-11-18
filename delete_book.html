@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/styles.css">    
+    <link rel="stylesheet" href="css/styles.css">
     <script src="js/script.js" defer></script>
-    <title>Bookie</title>
+    <title>Profile</title>
 </head>
 <body>
     <header>
@@ -15,7 +15,7 @@
                 <a href="books.html" class="nav-link">Books</a>
             </div>
             <div class="navbar-right">
-            <div>
+                <div>
                 <a href="login.html" id="loginBtn" class="border-btn">Login</a>
                 <a href="profile.html" id="profileBtn" class="hidden"> 
                     <img src="img/profile.svg" alt="profile">
@@ -41,20 +41,29 @@
         </nav>
     </header>
     <main>
-    <section id="hero">
-        <div class="hero-text">
-            <h1>
-                Find your next book here
-            </h1>
-            <p>
-                Your online bookstore - borrow and read all the books the world has to offer!
-            </p>
-            <a href="books.html" class="filled-btn">
-                Explore books
-            </a>
-        </div>
-        <img src="img/hero.png" alt="hero">
-    </section>
+        <section id="profile">
+            <div>
+                <nav class="secondary-nav">
+                    <a href="profile.html">Your bookie profile</a>
+                    <a href="edit_profile.html" >Edit profile</a>
+                    <a href="delete_profile.html" class="actual">Delete profile</a>
+                </nav>
+            </div>
+            <div>
+                <div>
+                    <h2>First name + last name</h2>
+                    <p>user_name</p>
+                    <p>user_email</p>
+                    <p>user_email</p>
+                    <p>adress</p>
+                    <p>phone number</p>
+                    <p>birthday</p>
+                    <p>Member since: </p>
+                </div>
+                <button class="filled-btn" onclick="signOut()">Sign out</button>
+            </div>
+        </section>
+
     </main>
     <footer></footer>
 </body>
