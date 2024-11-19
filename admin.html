@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/styles.css">
     <script src="js/script.js" defer></script>
+    <script src="js/admin.js" type="module"></script>
     <title>Admin profile</title>
 </head>
 <body>
@@ -43,25 +44,9 @@
     </header>
     <main>
         <section id="profile">
-            <div>
-                <nav class="secondary-nav">
-                    <a href="profile.html">Your Admnin profile</a>
-                    <a href="edit_profile.html" class="actual">Edit profile</a>
-                    <a href="delete_profile.html">Delete profile</a>
-                </nav>
-            </div>
-            <div>
-                <div class="profile-edit">
-                    <h2>Edit your information</h2>
-                    <form id="login-form">
-                        <input id="editEmail" type="text" placeholder="Email">
-                        <input id="editPhone" type="text" placeholder="phone number">
-                        <input id="editAdrress" type="text" placeholder="Address">
-                        <button class="filled-btn" type="submit">Save information</button>
-                    </form>
+            <div class="profile-info">
             </div>
         </section>
-
     </main>
     <footer></footer>
 </body>

@@ -1,7 +1,6 @@
 import { baseUrl, handleAPIResponseError } from "./common.js";
 
 const profile = document.querySelector(".profile-info");
-const deleteProfile = document.querySelector(".delete-account");
 
 let profileInfo = {};
 
@@ -11,15 +10,11 @@ console.log(`User id ${userId}`);
 document.addEventListener("DOMContentLoaded", () => {
 showProfile();
 
-document.removeEventListener("click", handleClick); // Remove existing listener
 document.addEventListener("click", handleClick);
 
 function handleClick(e) {
     if (e.target && e.target.id === "editProfileBtn") {
     toggleForm(true);
-    }
-    if (e.target && e.target.id === "deleteBtn") {
-    deleteAccount(userId);
     }
 }
 });
@@ -132,29 +127,5 @@ function updateProfile(userId) {
             }
         })
         .catch(handleAPIResponseError);
-};
-
-function deleteAccount(userId) {
-    console.log(`delete user with id ${userId}`);
-    if (!userId) {
-        alert("User ID not found. Please log in again.");
-        return;
-    };
-    if (confirm("Are you sure you want to delete your bookie account?")) {
-        fetch(`${baseUrl}/users/${userId}`, {
-        method: "DELETE",
-        })
-        .then((response) => response.json())
-        .then((data) => {
-            if (data.status === "ok") {
-                alert("User deleted");
-                sessionStorage.removeItem("user_id");
-                window.location = "index.html"
-            } else {
-                handleAPIResponseError(data.error);
-            }
-        })
-        .catch(handleAPIResponseError);
-    }
 };
 

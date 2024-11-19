@@ -21,6 +21,9 @@ document.querySelector('#login-form').addEventListener('submit', (e) => {
         sessionStorage.setItem("user_id", data.user_id);
         console.log(data.user_id);
         window.location.href = "profile.html";
+            if (data.user_id === 2679) {
+                window.location.href = "admin.html"
+            }
         } else {
         handleAPIResponseError(data.error);
         }

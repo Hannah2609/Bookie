@@ -3,11 +3,17 @@ document.addEventListener("DOMContentLoaded", () => {
     const loggedInUser = sessionStorage.getItem("user_id");
     const logInBtn = document.querySelector("#loginBtn")
     const profileBtn = document.querySelector("#profileBtn");
-    // const adminBtn = document.querySelector("#adminBtn");
+    const adminBtn = document.querySelector("#adminBtn");
 
     if (loggedInUser) {
         profileBtn.classList.remove("hidden");
         logInBtn.classList.add("hidden");
+
+        if (loggedInUser === "2679") {
+                profileBtn.classList.add("hidden");
+                logInBtn.classList.add("hidden");
+                adminBtn.classList.remove("hidden");
+        }
 
         // add another if statement if admin user found
     } else {
