@@ -122,8 +122,8 @@ header {
                     background-color: var(--color-primary);
                 }
                 .nav-links.show {
-                    opacity: 1; /* Fully visible */
-                    transform: translateX(0); /* Slide into view */
+                    opacity: 1; 
+                    transform: translateX(0);
                     visibility: visible;
                     transition: transform 0.5s ease, opacity 0.5s ease;
                     a {
@@ -221,7 +221,7 @@ overflow: hidden;
             width: 100%;
             top: 0;
             right: 0;
-            background-color: var(--color-overlay);
+            background-color: var(--color-semi-transparrent);
             z-index: 10;
             display: flex;
             align-items: center;
@@ -242,12 +242,6 @@ overflow: hidden;
             display: none;
         }
     }
-    @media (max-width: 500px) {
-        margin: 2rem;
-        #form {
-            padding: 2.5rem;
-        }
-    }
 }
 
 #form {
@@ -263,6 +257,17 @@ overflow: hidden;
             font-weight: 500;
         }
     }
+    p.membership-date {
+        justify-content: start;
+        margin-top: 1rem;
+        font-size: 1.2rem;
+        color: var(--color-semi-transparrent);
+        margin-bottom: 2rem;
+    }
+    h2.profile {
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+    }
     form, #profile-form {
         display: flex;
         flex-direction: column;
@@ -271,6 +276,7 @@ overflow: hidden;
         button {
             margin-top: 1.3rem;
         }
+
 
         input {
             padding: 0.5rem 0;
@@ -354,6 +360,18 @@ overflow: hidden;
                 }
         }
     }
+    @media (min-width: 700px) {
+        #profile-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+        }
+    }
+    @media (max-width: 500px) {
+        margin: 2rem;
+        padding: 0;
+    }
+
 } 
 
 
@@ -421,31 +439,34 @@ overflow: hidden;
     transform: scale(1.02);
 }
 
-
-/* PROFILE */
-/* 
-#profile {
-    display: grid;
-    grid-template-columns: 2fr 3fr;
+#deleteBtn {
+    padding-inline: 3rem;
+    padding-top: 0.7rem;
+    padding-bottom: 0.7rem;
+    border-radius: 100px;
+    font-weight: 500;
+    font-size: 1.05rem;
+    font-family: var(--font-text);
+    border: 2px solid var(--color-error);
+    background-color: var(--color-error);
+    color: var(--color-secondary);
+    text-decoration: none;
+    cursor: pointer;
+    color: var(--color-secondary);
+    transform: scale(1);
+    transition: transform 0.3s ease;
     margin-top: 2rem;
-    margin-inline: 6rem;
-    border-radius: 20px;
-    background-color: var(--color-secondary);
-    overflow: hidden;
-    padding: 2rem;
-    gap: 2rem;
-    .secondary-nav {
-        background-color: var(--color-primary);
-        display: flex;
-        flex-direction: column;
-        justify-content: start;
-        gap: 2rem;
-        padding: 2rem;
-        height: 300px;
-        border-radius: 10px;
-        a {
-            color: var(--color-secondary);
-        }
-        
+}
+#deleteBtn:hover {
+    transform: scale(1.02);
+}
+
+.delete-account {
+    margin-inline: 3.5rem;
+    margin-top: 0.5rem;
+    margin-bottom: 2rem;
+    @media (max-width: 500px) {
+        margin-inline: 2rem;
+        margin-top: 4rem;
     }
-} */
+}

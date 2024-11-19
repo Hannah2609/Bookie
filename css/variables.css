@@ -6,7 +6,9 @@
     --color-secondary: #F0EADD;
     --color-tertiary: #FBF8F3;
     --color-transparrent: transparrent;
-    --color-overlay: rgba(19, 15, 38, 0.4);
+    --color-semi-transparrent: rgba(19, 15, 38, 0.4);
+    --color-error: #CF3738;
+    --color-success: rgb(28, 129, 28);
 
     --font-header: "Roboto Serif";
     --font-text: "Roboto";

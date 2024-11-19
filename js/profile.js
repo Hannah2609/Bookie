@@ -18,10 +18,14 @@ function showProfile() {
             .then((data) => {
                 if (Object.keys(data).includes("first_name")) {
                     profile.innerHTML = `
-                    <h2>Hi, ${data.first_name} ${data.last_name}</h2>
-                    <p>Bookie member since: ${data.membership_date}</p>
-                    <h3>Your information</h3>
+                    
                     <div id="form">
+                    <div>
+                        <h1>Hi, ${data.first_name} ${data.last_name}</h1>
+                        <p class="membership-date">Bookie member since ${data.membership_date}</p>
+                        <button class="filled-btn" onclick="signOut()">Sign out</button>
+                    </div>
+                    <h2 class="profile">Your information</h2>
                         <form id="profile-form">
                             <div class="input-group">
                                 <input id="editEmail" type="email" value="${data.email}">
@@ -97,3 +101,7 @@ function updateProfile(userId) {
         })
         .catch(handleAPIResponseError);
 };
+
+function deleteAccount() {
+    console.log("delete account")
+}
