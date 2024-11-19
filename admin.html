@@ -3,9 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/script.js" defer></script>
+    <title>Admin profile</title>
 </head>
 <body>
-    
+    <header>
+        <nav id="navbar">
+            <div class="navbar-left">
+                <a href="index.html"><img src="img/logo.svg" alt="logo"></a>
+                <a href="books.html" class="nav-link">Books</a>
+                <a href="authors.html" class="nav-link">Authors</a>
+            </div>
+            <div class="navbar-right">
+                <div>
+                <a href="login.html" id="loginBtn" class="border-btn">Login</a>
+                <a href="profile.html" id="profileBtn" class="hidden"> 
+                    <img src="img/profile.svg" alt="profile">
+                    <p>Profile</p>
+                </a>
+                <a href="admin.html" id="adminBtn" class="hidden"> 
+                    <img src="img/profile.svg" alt="admin">
+                    <p>Admin</p>
+                </a>
+            </div>
+            <div class="navbar-burger-menu">
+                <div class="burger-menu" onclick="toggleMenu()">
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                </div>
+                <div class="nav-links">
+                    <a href="books.html" class="nav-link">Books</a>
+                    <a href="index.html" class="nav-link">Authors</a>
+                </div>
+            </div>  
+        </div>
+        </nav>
+    </header>
+    <main>
+        <section id="profile">
+            <div>
+                <nav class="secondary-nav">
+                    <a href="profile.html">Your Admnin profile</a>
+                    <a href="edit_profile.html" class="actual">Edit profile</a>
+                    <a href="delete_profile.html">Delete profile</a>
+                </nav>
+            </div>
+            <div>
+                <div class="profile-edit">
+                    <h2>Edit your information</h2>
+                    <form id="login-form">
+                        <input id="editEmail" type="text" placeholder="Email">
+                        <input id="editPhone" type="text" placeholder="phone number">
+                        <input id="editAdrress" type="text" placeholder="Address">
+                        <button class="filled-btn" type="submit">Save information</button>
+                    </form>
+            </div>
+        </section>
+
+    </main>
+    <footer></footer>
 </body>
 </html>
