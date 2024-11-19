@@ -23,10 +23,22 @@ function showProfile() {
                     <h3>Your information</h3>
                     <div id="form">
                         <form id="profile-form">
-                            <input id="editEmail" type="email" value="${data.email}">
-                            <input id="editPhoneNumber" type="text" value="${data.phone_number}">
-                            <input id="editAddress" type="text" value="${data.address}">
-                            <input id="editBirth" type="text" value="${data.birth_date}">
+                            <div class="input-group">
+                                <input id="editEmail" type="email" value="${data.email}">
+                                <label for="editEmail">Email</lavel>
+                            </div>
+                            <div class="input-group">
+                                <input id="editPhoneNumber" type="text" value="${data.phone_number}">
+                                <label for="editPhoneNumber">Phone number</lavel>
+                            </div>
+                            <div class="input-group">
+                                <input id="editAddress" type="text" value="${data.address}">
+                                <label for="editAddress">Address</lavel>
+                            </div>
+                            <div class="input-group">
+                                <input id="editBirth" type="text" value="${data.birth_date}">
+                                <label for="editBirth">Birthday</lavel>
+                            </div>
                             <button id="saveBtn" class="filled-btn" type="submit">Save changes</button>
                         </form>
                     </div>

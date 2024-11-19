@@ -255,46 +255,105 @@ overflow: hidden;
     flex-direction: column;
     padding: 3.5rem;
     gap: 2rem;        
-        p {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            a {
-                font-weight: 500;
-            }
+    p {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        a {
+            font-weight: 500;
         }
-        form, #profile-form {
+    }
+    form, #profile-form {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        width: 100%;
+        button {
+            margin-top: 1.3rem;
+        }
+
+        input {
+            padding: 0.5rem 0;
+            max-width: 100%;
+            border: none;
+            border-bottom: 1.5px solid var(--color-primary);
+            background-color: var(--color-transparrent);
+            outline: 0;
+            font-size: 1rem;
+
+            &::placeholder {
+            color: transparent;
+            }
+        } 
+
+        .input-group {
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
             gap: 1rem;
-            width: 100%;
-            button {
-                margin-top: 1.3rem;
+            position: relative;
+            input {
+                width: 100%;
+                transition: font-size 0.3s;
+            }
+            label {
+                position: absolute;
+                bottom: 10px;
+                left: 0;
+                font-size: 1rem;
+                color: var(--color-primary); 
+                transition: 0.3s;
+                pointer-events: none;
+                cursor: text;
             }
 
-            input {
-                padding: 0.7rem;
-                border-radius: 100px;
-                max-width: 100%;
-                border: 1.2px solid var(--color-primary);
-                background-color: var(--color-transparrent);
+        /* Floating label effect when input is focused */
+            input:focus {
+                border-width: 2px;
+            }
 
-            } 
-            .input-group {
-                    display: flex;
-                    flex-direction: row;
-                    justify-content: space-between;
-                    align-items: center;
-                    gap: 1rem;
-                    input {
-                        width: 100%;
-                    }
-                    label {
-                        min-width: fit-content;
-                        font-size: 0.8rem;
-                    }
+            input:focus ~ label,
+            input:not(:placeholder-shown) ~ label {
+                font-size: 0.7rem;
+                transition: 0.3s;
+                top: -15px;
+            }
+
+            /* Reset input when required or invalid */
+            input:required,
+            input:invalid {
+                box-shadow: none;
             }
         }
+        fieldset {
+            display: flex;
+            flex-direction: row;
+            gap: 2rem;
+            border: none;
+            input {
+                width: 100%;
+            }
+            @media (max-width: 400px) {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+        }
+        .input-group2 {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                gap: 1rem;
+                input {
+                    width: 100%;
+                }
+                label {
+                    min-width: fit-content;
+                    font-size: 0.8rem;
+                }
+        }
+    }
 } 
 
 
