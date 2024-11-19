@@ -1,5 +1,5 @@
 h1{
-    padding: 1rem;
+    padding: 2rem;
 
     @media (min-width:1024px) {
         padding: 4rem;
@@ -9,14 +9,14 @@ h1{
 #books {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 1rem;
+    gap: 2rem;
     justify-items: center;
     align-items: start;
-    padding: 1rem;
+    padding-inline: 2rem;
 
     @media (min-width:1024px) {
         grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
-        padding: 4rem;
+        padding-inline: 4rem;
         gap: 3rem;
     }
 
