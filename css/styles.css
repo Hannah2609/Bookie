@@ -382,6 +382,7 @@ overflow: hidden;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
     border-radius: 100px;
+    font-size: 1.05rem;
     border: 2px solid var(--color-primary);
     background-color: var(--color-transparrent);
     font-weight: 500;
@@ -397,8 +398,8 @@ overflow: hidden;
 
 .filled-btn {
     padding-inline: 3rem;
-    padding-top: 0.7rem;
-    padding-bottom: 0.7rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5em;
     border-radius: 100px;
     font-weight: 500;
     font-size: 1.05rem;
@@ -440,8 +441,8 @@ overflow: hidden;
 
 #deleteBtn {
     padding-inline: 3rem;
-    padding-top: 0.7rem;
-    padding-bottom: 0.7rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
     border-radius: 100px;
     font-weight: 500;
     font-size: 1.05rem;
@@ -468,4 +469,10 @@ overflow: hidden;
         margin-inline: 2rem;
         margin-top: 4rem;
     }
+}
+
+.btn-group {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
 }
