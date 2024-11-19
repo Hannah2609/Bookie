@@ -53,19 +53,41 @@
         <div id="form">
             <h2>Create an account</h2>
             <form id="signup-form">
+                <fieldset>
+                    <div class="input-group">
+                        <input id="firstName" type="text" placeholder="First Name" required>
+                        <label for="firstName">First name *</label>      
+                    </div>
+                    <div class="input-group">
+                        <input id="lastName" type="text" placeholder="Last Name" required>
+                        <label for="lastName">Last name *</label>  
+                    </div>
+                </fieldset>
                 <div class="input-group">
-                    <input id="firstName" type="text" placeholder="First Name" required>
-                    <input id="lastName" type="text" placeholder="Last Name" required>
-                </div>
                     <input id="email" type="email" placeholder="Email" required>
-                    <input id="address" type="text" placeholder="address" required>
-                    <input id="phoneNumber" type="text" placeholder="phone number" required>
+                    <label for="email">Email *</label>  
+                </div>
                 <div class="input-group">
-                    <label for="birthDate">Date of birth</label>
+                    <input id="address" type="text" placeholder="address" required>
+                    <label for="address">Address *</label>  
+                </div>
+                <div class="input-group">
+                    <input id="phoneNumber" type="text" placeholder="phone number" required>
+                    <label for="phoneNumber">Phone number *</label>  
+                </div>
+                    
+                <div class="input-group2">
+                    <label for="birthDate">Date of birth *</label>
                     <input id="birthDate" type="date" placeholder="Birthday" required>   
                 </div>
+                <div class="input-group">
                     <input id="password" type="password" placeholder="Password" required>
+                    <label for="password">Password *</label>  
+                </div>
+                <div class="input-group">
                     <input id="repeatPassword" type="password" placeholder="Repeat password" required>
+                    <label for="repeatPassword">Repeat password *</label>  
+                </div>
                 <button class="filled-btn" type="submit">Sign up</button>
             </form>
             <p>Already have an account? <a href="login.html">Login</a></p>
