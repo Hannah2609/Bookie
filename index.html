@@ -1,61 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/styles.css">    
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/home.css">
+    <script src="js/home.js" type="module" defer></script>
     <script src="js/script.js" defer></script>
     <title>Bookie</title>
 </head>
+
 <body>
     <header>
         <nav id="navbar">
             <div class="navbar-left">
                 <a href="index.html"><img src="img/logo.svg" alt="logo"></a>
                 <a href="books.html" class="nav-link">Books</a>
+                <a href="authors.html" class="nav-link">Authors</a>
             </div>
             <div class="navbar-right">
-            <div>
-                <a href="login.html" id="loginBtn" class="border-btn">Login</a>
-                <a href="profile.html" id="profileBtn" class="hidden"> 
-                    <img src="img/profile.svg" alt="profile">
-                    <p>Profile</p>
-                </a>
-                <a href="admin.html" id="adminBtn" class="hidden"> 
-                    <img src="img/profile.svg" alt="admin">
-                    <p>Admin</p>
-                </a>
+                <div>
+                    <a href="login.html" id="loginBtn" class="border-btn">Login</a>
+                    <a href="profile.html" id="profileBtn" class="hidden">
+                        <img src="img/profile.svg" alt="profile">
+                        <p>Profile</p>
+                    </a>
+                    <a href="admin.html" id="adminBtn" class="hidden">
+                        <img src="img/profile.svg" alt="admin">
+                        <p>Admin</p>
+                    </a>
+                </div>
+                <div class="navbar-burger-menu">
+                    <div class="burger-menu" onclick="toggleMenu()">
+                        <div class="line"></div>
+                        <div class="line"></div>
+                        <div class="line"></div>
+                    </div>
+                    <div class="nav-links">
+                        <a href="books.html" class="nav-link">Books</a>
+                        <a href="index.html" class="nav-link">Authors</a>
+                    </div>
+                </div>
             </div>
-            <div class="navbar-burger-menu">
-                <div class="burger-menu" onclick="toggleMenu()">
-                    <div class="line"></div>
-                    <div class="line"></div>
-                    <div class="line"></div>
-                </div>
-                <div class="nav-links">
-                    <a href="books.html" class="nav-link">Books</a>
-                    <a href="index.html" class="nav-link">Authors</a>
-                </div>
-            </div>  
-        </div>
         </nav>
     </header>
     <main>
-    <section id="hero">
-        <div class="hero-text">
-            <h1>
-                Find your next book here
-            </h1>
-            <p>
-                Your online bookstore - borrow and read all the books the world has to offer!
-            </p>
-            <a href="books.html" class="filled-btn">
-                Explore books
-            </a>
-        </div>
-        <img src="img/hero.png" alt="hero">
-    </section>
+        <section id="hero">
+            <div class="hero-text">
+                <h1>
+                    Find your next book here
+                </h1>
+                <p>
+                    Your online bookstore - borrow and read all the books the world has to offer!
+                </p>
+                <a href="books.html" class="filled-btn">
+                    Explore books
+                </a>
+            </div>
+            <img src="img/hero.png" alt="hero">
+        </section>
+        <section id="popular">
+            <h2>Popular</h2>
+            <section id="books"></section>
+        </section>
     </main>
     <footer></footer>
 </body>
+
 </html>

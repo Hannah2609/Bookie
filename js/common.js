@@ -1,5 +1,7 @@
+// URL
 export const baseUrl = 'http://localhost:8080';
 
+// Function to handle API error
 export const handleAPIError = function(response) {
     if (response.ok) {
         return response.json();
