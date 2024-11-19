@@ -10,7 +10,6 @@ body {
     color: var(--color-primary);
     background-color: var(--color-tertiary);
 }
-
 h1, h2, h3, h4 {
     font-family: var(--font-header);
     font-weight: 400;
@@ -25,18 +24,14 @@ a {
     text-decoration: none;
     color: var(--color-primary);
 }
-
 .hidden, #profileBtn.hidden {
     display: none;
 }
-
-
 .actual {
     font-weight: 500;
 }
 
 /* HEADER NAV */
-
 header {
     background-color: var(--color-transparrent);
     padding-inline: 2rem;
@@ -114,11 +109,11 @@ header {
                     justify-content: center;
                     align-items: center;
                     gap: 2rem;
-                    position: absolute;
+                    position: fixed;
                     top: 0;
                     right: 0;
-                    width: 100dvw;
-                    height: 100dvh;
+                    width: 100vw;
+                    height: 100vh;
                     background-color: var(--color-primary);
                 }
                 .nav-links.show {
@@ -141,6 +136,7 @@ header {
         }
     }
 }
+
 .home-page header {
     background-color: var(--color-secondary);
 }
@@ -201,7 +197,6 @@ header {
         }
     }
 }
-
 
 /* FORMS */
 #container-form {
@@ -381,10 +376,7 @@ overflow: hidden;
 
 } 
 
-
-
 /* BUTTONS */
-
 .border-btn {
     padding-inline: 2rem;
     padding-top: 0.5rem;
