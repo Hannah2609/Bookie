@@ -417,7 +417,7 @@ overflow: hidden;
 .filled-btn:hover {
     transform: scale(1.02);
 }
-#profileBtn {
+#profileBtn, #adminBtn {
     padding-inline: 2rem;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
@@ -434,7 +434,7 @@ overflow: hidden;
     transition: transform 0.3s ease;
     cursor: pointer;
 }
-#profileBtn:hover {
+#profileBtn:hover, #adminBtn:hover {
     transform: scale(1.02);
 }
 #deleteBtn {
