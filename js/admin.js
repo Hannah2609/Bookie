@@ -44,7 +44,7 @@ if (!userId) {
                                         <button type="button" id="addPublisherBtn" class="border-btn">Add New Publisher</button>
                                 </fieldset>
                                 <div class="input-group">
-                                    <input id="publishingYear" type="number" placeholder="Publishing year" required>
+                                    <input id="publishingYear" type="text" placeholder="Publishing year" required>
                                     <label for="publishingYear">Publishing year *</label>  
                                 </div>
                                 <button class="filled-btn" type="submit">Add Book</button>
