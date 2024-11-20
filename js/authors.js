@@ -2,7 +2,7 @@ import { baseUrl, handleAPIError } from './common.js';
 
 const authorsContainer = document.querySelector('#authors');
 const showMoreBtn = document.querySelector("#show-more");
-const searchField = document.querySelector("#search-field");
+const searchField = document.querySelector("#search");
 
 let allAuthors = []; 
 let currentPage = 0; 
