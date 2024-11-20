@@ -10,12 +10,11 @@ document.addEventListener("DOMContentLoaded", () => {
         logInBtn.classList.add("hidden");
 
         if (loggedInUser === "2679") {
-                profileBtn.classList.add("hidden");
-                logInBtn.classList.add("hidden");
-                adminBtn.classList.remove("hidden");
+            profileBtn.classList.add("hidden");
+            logInBtn.classList.add("hidden");
+            adminBtn.classList.remove("hidden");
         }
 
-        // add another if statement if admin user found
     } else {
         profileBtn.classList.add("hidden");
         logInBtn.classList.remove("hidden");
