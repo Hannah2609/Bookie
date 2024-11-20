@@ -20,13 +20,6 @@ function showAdminProfile() {
                         <h1>Hi, ${data.first_name} ${data.last_name}</h1>
                         <button class="filled-btn" onclick="signOut()">Sign out</button>
                     `;
-
-                    // document
-                    //     .querySelector("#profile-form")
-                    //     .addEventListener("submit", (e) => {
-                    //         e.preventDefault();
-                    //         updateProfile(userId);
-                    //     });
                 } else {
                     handleAPIResponseError(data.error);
                 }
