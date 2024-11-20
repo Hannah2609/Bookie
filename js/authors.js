@@ -1,7 +1,7 @@
 import { baseUrl, handleAPIError } from './common.js';
 
 const authorsContainer = document.querySelector('#authors');
-const showMoreBtn =  document.querySelector("#show-more");
+// const showMoreBtn =  document.querySelector("#show-more");
 
 // Function to render a single book
 const renderAuthor = (author) => {
@@ -35,4 +35,4 @@ const fetchAuthors = () => {
 
 fetchAuthors()
 
-showMoreBtn.addEventListener('click', fetchAuthors);
+// showMoreBtn.addEventListener('click', fetchAuthors);
