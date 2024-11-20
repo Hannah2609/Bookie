@@ -290,54 +290,6 @@ overflow: hidden;
         width: 200px;
         min-width: fit-content;
         }
-        input {
-            padding: 0.5rem 0;
-            max-width: 100%;
-            border: none;
-            border-bottom: 1.5px solid var(--color-primary);
-            background-color: var(--color-transparrent);
-            outline: 0;
-            font-size: 1rem;
-
-            &::placeholder {
-            color: transparent;
-            }
-        } 
-
-        .input-group {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            align-items: center;
-            gap: 1rem;
-            position: relative;
-            width: 100%;
-            input {
-                width: 100%;
-                transition: font-size 0.3s;
-            }
-            label {
-                position: absolute;
-                bottom: 10px;
-                left: 0;
-                font-size: 1rem;
-                color: var(--color-primary); 
-                transition: 0.3s;
-                pointer-events: none;
-                cursor: text;
-            }
-
-            input:focus {
-                border-width: 2px;
-            }
-
-            input:focus ~ label,
-            input:not(:placeholder-shown) ~ label {
-                font-size: 0.7rem;
-                transition: 0.3s;
-                top: -15px;
-            }
-        }
         fieldset {
             display: flex;
             flex-direction: row;
@@ -382,8 +334,58 @@ overflow: hidden;
         margin: 2rem;
         padding: 0;
     }
-
 } 
+
+/* INPUT */
+.input-group {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    position: relative;
+    width: 100%;
+    /* input {
+        width: 100%;
+        transition: font-size 0.3s;
+    } */
+    input {
+    padding: 0.5rem 0;
+    max-width: 100%;
+    border: none;
+    border-bottom: 1.5px solid var(--color-primary);
+    background-color: var(--color-transparrent);
+    outline: 0;
+    font-size: 1rem;
+    width: 100%;
+    transition: font-size 0.3s;
+    &::placeholder {
+        color: transparent;
+        }
+    } 
+    label {
+        position: absolute;
+        bottom: 10px;
+        left: 0;
+        font-size: 1rem;
+        color: var(--color-primary); 
+        transition: 0.3s;
+        pointer-events: none;
+        cursor: text;
+    }
+
+    input:focus {
+        border-width: 2px;
+    }
+
+    input:focus ~ label,
+    input:not(:placeholder-shown) ~ label {
+        font-size: 0.7rem;
+        transition: 0.3s;
+        top: -15px;
+    }
+}
+
 
 
 /* BUTTONS */
