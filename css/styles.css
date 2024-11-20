@@ -24,7 +24,7 @@ a {
     text-decoration: none;
     color: var(--color-primary);
 }
-.hidden, #profileBtn.hidden {
+.hidden, #profileBtn.hidden, #adminBtn.hidden {
     display: none;
 }
 .actual {
@@ -271,6 +271,11 @@ overflow: hidden;
         margin-top: 2rem;
         margin-bottom: 1rem;
     }
+    #adminSignOut.filled-btn {
+        margin-top: 2rem;
+        margin-bottom: 4rem;
+    }
+
     form, #profile-form {
         display: flex;
         flex-direction: column;
@@ -279,8 +284,12 @@ overflow: hidden;
         button {
             margin-top: 1.3rem;
         }
-
-
+        #addAuthorBtn.border-btn, #addPublisherBtn.border-btn {
+        font-size: 0.9rem;
+        padding: 0.4rem;
+        width: 200px;
+        min-width: fit-content;
+        }
         input {
             padding: 0.5rem 0;
             max-width: 100%;
@@ -302,6 +311,7 @@ overflow: hidden;
             align-items: center;
             gap: 1rem;
             position: relative;
+            width: 100%;
             input {
                 width: 100%;
                 transition: font-size 0.3s;
@@ -317,7 +327,6 @@ overflow: hidden;
                 cursor: text;
             }
 
-        /* Floating label effect when input is focused */
             input:focus {
                 border-width: 2px;
             }
@@ -327,12 +336,6 @@ overflow: hidden;
                 font-size: 0.7rem;
                 transition: 0.3s;
                 top: -15px;
-            }
-
-            /* Reset input when required or invalid */
-            input:required,
-            input:invalid {
-                box-shadow: none;
             }
         }
         fieldset {
@@ -347,6 +350,10 @@ overflow: hidden;
                 flex-direction: column;
                 gap: 1.5rem;
             }
+        }
+        fieldset.fieldsetAddBook {
+        justify-content: flex-start;
+        align-items: flex-end;
         }
         .input-group2 {
                 display: flex;
@@ -364,10 +371,11 @@ overflow: hidden;
         }
     }
     @media (min-width: 700px) {
-        #profile-form {
+        #profile-form, #add-book-form {
             display: grid;
             grid-template-columns: 1fr 1fr;
             grid-template-rows: 1fr 1fr;
+            align-items: end;
         }
     }
     @media (max-width: 500px) {
@@ -417,7 +425,8 @@ overflow: hidden;
 .filled-btn:hover {
     transform: scale(1.02);
 }
-#profileBtn {
+
+#profileBtn, #adminBtn {
     padding-inline: 2rem;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
@@ -434,9 +443,10 @@ overflow: hidden;
     transition: transform 0.3s ease;
     cursor: pointer;
 }
-#profileBtn:hover {
+#profileBtn:hover, #adminBtn:hover {
     transform: scale(1.02);
 }
+
 #deleteBtn {
     padding-inline: 3rem;
     padding-top: 0.5rem;
