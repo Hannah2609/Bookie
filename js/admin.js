@@ -14,10 +14,14 @@ if (!userId) {
     .then((data) => {
         if (Object.keys(data).includes("first_name")) {
         admin.innerHTML = `
-                        <h1>Hi, ${data.first_name} ${data.last_name}</h1>
-                        <button class="filled-btn" onclick="signOut()">Sign out</button>
+                        
                         <div id="form">
+                        <div>
+                            <h1>Hi, ${data.first_name} ${data.last_name}</h1>
+                            <button id="adminSignOut" class="filled-btn" onclick="signOut()">Sign out</button>
+                        </div>
                             <h2>Add a New Book</h2>
+                            
                             <form id="add-book-form">
                                 <div class="input-group">
                                     <input id="title" type="text" placeholder="Book title" required>
@@ -38,7 +42,6 @@ if (!userId) {
                                     </div>  
                                         <div id="publisherSuggestions" class="suggestions"></div>
                                         <button type="button" id="addPublisherBtn" class="border-btn">Add New Publisher</button>
-                            
                                 </fieldset>
                                 <div class="input-group">
                                     <input id="publishingYear" type="number" placeholder="Publishing year" required>
