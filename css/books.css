@@ -42,14 +42,3 @@ h1{
             }
         }  
 }
-
-#btn-container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 1rem;
-
-    @media (min-width:1024px) {
-        margin-bottom: 4rem;
-    }
-}

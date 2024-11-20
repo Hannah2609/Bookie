@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookies</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/books_by_author.js" type="module"></script>
+</head>
+
+<body>
+    <header>
+        <nav id="navbar">
+            <div class="navbar-left">
+                <a href="index.html"><img src="img/logo.svg" alt="logo"></a>
+                <a href="books.html" class="nav-link">Books</a>
+                <a href="authors.html" class="nav-link">Authors</a>
+            </div>
+            <div class="navbar-right">
+            <div>
+                <a href="login.html" id="loginBtn" class="border-btn">Login</a>
+                <a href="profile.html" id="profileBtn" class="hidden"> 
+                    <img src="img/profile.svg" alt="profile">
+                    <p>Profile</p>
+                </a>
+                <a href="admin.html" id="adminBtn" class="hidden"> 
+                    <img src="img/profile.svg" alt="admin">
+                    <p>Admin</p>
+                </a>
+            </div>
+            <div class="navbar-burger-menu">
+                <div class="burger-menu" onclick="toggleMenu()">
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                </div>
+                <div class="nav-links">
+                    <a href="books.html" class="nav-link">Books</a>
+                    <a href="index.html" class="nav-link">Authors</a>
+                </div>
+            </div>  
+        </div>
+        </nav>
+    </header>
+    <main>
+        <h1 id="title_author"></h1>
+        <section id="books_by_author">
+            
+        </section>
+    </main>
+</body>
+
+</html>
