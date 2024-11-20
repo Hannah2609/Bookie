@@ -46,12 +46,15 @@
         </nav>
     </header>
     <main>
-        <h1>Explore books</h1>
-        <div id="search-container">
-            <img src="img/loop.svg" alt="search icon">
-            <label for="search">
-                <input type="text" id="search" placeholder="Search for books" aria-label="Search for books">
-            </label>
+        <div id="booksHeader">
+            <h1>Explore Authors</h1> 
+            <div class="search-loop-container">
+                <div id="search-container" class="input-group">
+                    <input type="text" id="search" placeholder="Search books" aria-label="search for books"/>
+                    <label for="search">Search books</label>
+                </div>  
+                <img src="img/loop.svg" alt="loop"> 
+            </div>
         </div>
         <section id="books"></section>
         <div id="btn-container">
