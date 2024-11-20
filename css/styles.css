@@ -31,6 +31,7 @@ a {
     font-weight: 500;
 }
 
+
 /* HEADER NAV */
 header {
     background-color: var(--color-transparrent);
@@ -136,10 +137,10 @@ header {
         }
     }
 }
-
 .home-page header {
     background-color: var(--color-secondary);
 }
+
 
 /* HERO */
 #hero {
@@ -198,6 +199,7 @@ header {
     }
 }
 
+
 /* FORMS */
 #container-form {
 display: grid;
@@ -245,7 +247,6 @@ overflow: hidden;
         }
     }
 }
-
 #form {
     display: flex;
     flex-direction: column;
@@ -376,6 +377,7 @@ overflow: hidden;
 
 } 
 
+
 /* BUTTONS */
 .border-btn {
     padding-inline: 2rem;
@@ -395,7 +397,6 @@ overflow: hidden;
 .border-btn:hover {
     transform: scale(1.02);
 }
-
 .filled-btn {
     padding-inline: 3rem;
     padding-top: 0.5rem;
@@ -416,8 +417,6 @@ overflow: hidden;
 .filled-btn:hover {
     transform: scale(1.02);
 }
-
-/* add this when removing hidden when user is logged in */
 #profileBtn {
     padding-inline: 2rem;
     padding-top: 0.5rem;
@@ -438,7 +437,6 @@ overflow: hidden;
 #profileBtn:hover {
     transform: scale(1.02);
 }
-
 #deleteBtn {
     padding-inline: 3rem;
     padding-top: 0.5rem;
@@ -460,7 +458,6 @@ overflow: hidden;
 #deleteBtn:hover {
     transform: scale(1.02);
 }
-
 .delete-account {
     margin-inline: 3.5rem;
     margin-top: 0.5rem;
@@ -470,7 +467,6 @@ overflow: hidden;
         margin-top: 4rem;
     }
 }
-
 .btn-group {
     display: flex;
     flex-direction: row;
