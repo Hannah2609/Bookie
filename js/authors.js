@@ -2,21 +2,22 @@ import { baseUrl, handleAPIError } from './common.js';
 
 const authorsContainer = document.querySelector('#authors');
 const showMoreBtn = document.querySelector("#show-more");
+const searchField = document.querySelector("#searchField");
 
+let allAuthors = []; 
 let currentPage = 0; 
 const authorsPerPage = 20; 
-let allAuthors = []; // We save authors in an array
 
 // Function to render a single author
 const renderAuthor = (author) => {
     const authorCard = document.createElement('article');
     authorCard.innerHTML = `
-            <a href="books_by_author.html?id=${author.author_id}" aria-label="See books by ${author.author_name}">
-                <div id="author-card">
-                    <h2>${author.author_name}</h2>
-                </div>
-            </a>
-        `;
+        <a href="books_by_author.html?id=${author.author_id}" aria-label="See books by ${author.author_name}">
+            <div id="author-card">
+                <h2>${author.author_name}</h2>
+            </div>
+        </a>
+    `;
     authorsContainer.appendChild(authorCard);
 };
 
@@ -25,13 +26,13 @@ const fetchAuthors = () => {
     fetch(`${baseUrl}/authors`)
         .then(handleAPIError)
         .then((data) => {
-            // Sort by name
+            // Sort authors alphabetically by name
             allAuthors = data.sort((a, b) => a.author_name.localeCompare(b.author_name));
 
-            // Render first page of authors
+            // Render the first batch of authors
             showAuthorsBatch();
 
-            // Show button if there is more authors to show
+            // Show the "Show More" button if more authors exist
             if (allAuthors.length > authorsPerPage) {
                 showMoreBtn.classList.remove('hidden'); 
             }
@@ -45,7 +46,7 @@ const fetchAuthors = () => {
         });
 };
 
-// Function to show 20 authors per page
+// Function to show a batch of authors
 const showAuthorsBatch = () => {
     const startIndex = currentPage * authorsPerPage; 
     const endIndex = startIndex + authorsPerPage; 
@@ -53,16 +54,47 @@ const showAuthorsBatch = () => {
     const authorsToShow = allAuthors.slice(startIndex, endIndex);
     authorsToShow.forEach(renderAuthor);
 
-    // If all authors shown hide button
+    // Hide the "Show More" button if all authors are displayed
     if (endIndex >= allAuthors.length) {
         showMoreBtn.classList.add('hidden');
     }
 };
 
-showMoreBtn.addEventListener('click', () => {
-    currentPage++; // Go one page up
-    showAuthorsBatch();  // Show next page
+// Function to filter authors based on a search
+const searchAuthors = (searchTerm) => {
+    const filteredAuthors = allAuthors.filter(author =>
+        author.author_name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+
+    // Clear the existing authors
+    authorsContainer.innerHTML = ''; 
+
+    if (filteredAuthors.length > 0) {
+        filteredAuthors.forEach(renderAuthor);
+        showMoreBtn.classList.add('hidden'); 
+    } else {
+        authorsContainer.innerHTML = `<p>No authors found matching "${searchTerm}".</p>`;
+    }
+};
+
+searchField.addEventListener('input', (e) => {
+    // Get the search input value
+    const searchTerm = e.target.value.trim(); 
+    if (searchTerm === "") {
+        // If search field is empty, reset to the full list
+        authorsContainer.innerHTML = '';
+        currentPage = 0; 
+        showAuthorsBatch();
+        showMoreBtn.classList.remove('hidden'); 
+    } else {
+        // Perform the search
+        searchAuthors(searchTerm);
+    }
 });
 
+showMoreBtn.addEventListener('click', () => {
+    currentPage++; 
+    showAuthorsBatch(); 
+});
 
 fetchAuthors();
