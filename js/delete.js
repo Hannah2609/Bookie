@@ -1,8 +1,8 @@
 import { baseUrl, handleAPIResponseError } from "./common.js";
 
 
-function deleteAccount(userId) {
-    // let userId = sessionStorage.getItem("user_id");
+function deleteAccount() {
+    let userId = sessionStorage.getItem("user_id");
 
     console.log(`delete user with id ${userId}`);
     if (!userId) {
@@ -26,3 +26,5 @@ function deleteAccount(userId) {
         .catch(handleAPIResponseError);
     }
 };
+
+document.querySelector("#deleteBtn").addEventListener("click", deleteAccount);
