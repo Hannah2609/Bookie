@@ -51,6 +51,10 @@ if (!userId) {
                             </form>
                         </div>
                     `;
+                document.querySelector("#add-book-form").addEventListener("submit", (e) => {
+                    e.preventDefault();
+                    addBook(e);
+                })
             // setupDynamicSuggestions();
         } else {
         handleAPIResponseError(data.error);
@@ -59,3 +63,33 @@ if (!userId) {
     .catch(handleAPIResponseError);
 }
 }
+
+function addBook(e) {
+
+const authorId = e.target.authorSearch.value.trim();
+const publisherId = e.target.publisherSearch.value.trim();
+const title = e.target.title.value.trim();
+const year = e.target.publishingYear.value.trim();
+
+const params = new URLSearchParams();
+params.append("title", title);
+params.append("author_id", authorId);
+params.append("publishing_year", year);
+params.append("publisher_id", publisherId);
+
+fetch(`${baseUrl}/admin/books`, {
+    method: "POST",
+    body: params,
+    })
+    .then((response) => response.json())
+    .then((data) => {
+        if (Object.keys(data).includes("book_id")) {
+            alert("Book added successfully");
+            console.log(`book added with id${data.book_id}`);
+            //reset form
+        } else {
+            handleAPIResponseError(data.error);
+            }
+        })
+    .catch(handleAPIResponseError);
+};
