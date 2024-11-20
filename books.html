@@ -20,17 +20,17 @@
                 <a href="authors.html" class="nav-link">Authors</a>
             </div>
             <div class="navbar-right">
-            <div>
-                <a href="login.html" id="loginBtn" class="border-btn">Login</a>
-                <a href="profile.html" id="profileBtn" class="hidden"> 
-                    <img src="img/profile.svg" alt="profile">
-                    <p>Profile</p>
-                </a>
-                <a href="admin.html" id="adminBtn" class="hidden"> 
-                    <img src="img/profile.svg" alt="admin">
-                    <p>Admin</p>
-                </a>
-            </div>
+                <div>
+                    <a href="login.html" id="loginBtn" class="border-btn">Login</a>
+                    <a href="profile.html" id="profileBtn" class="hidden">
+                        <img src="img/profile.svg" alt="profile">
+                        <p>Profile</p>
+                    </a>
+                    <a href="admin.html" id="adminBtn" class="hidden">
+                        <img src="img/profile.svg" alt="admin">
+                        <p>Admin</p>
+                    </a>
+                </div>
                 <div class="navbar-burger-menu">
                     <div class="burger-menu" onclick="toggleMenu()">
                         <div class="line"></div>
@@ -47,6 +47,12 @@
     </header>
     <main>
         <h1>Explore books</h1>
+        <div id="search-container">
+            <img src="img/loop.svg" alt="search icon">
+            <label for="search">
+                <input type="text" id="search" placeholder="Search for books" aria-label="Search for books">
+            </label>
+        </div>
         <section id="books"></section>
         <div id="btn-container">
             <button id="show-more" class="filled-btn">Show More</button>
