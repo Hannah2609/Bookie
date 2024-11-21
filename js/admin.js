@@ -64,6 +64,14 @@ if (!userId) {
 }
 }
 
+
+function searchSuggestion() {
+    const authorSearch = document.getElementById("authorSearch");
+    const publisherSearch = document.getElementById("publisherSearch");
+    const authorSuggestions = document.getElementById("authorSuggestions");
+    const publisherSuggestions = document.getElementById("publisherSuggestions");
+}
+
 function addBook(e) {
 
 const authorId = e.target.authorSearch.value.trim();

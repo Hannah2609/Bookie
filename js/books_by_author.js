@@ -8,13 +8,15 @@ const authorID = new URLSearchParams(window.location.search).get('id');
 const renderBook = (book) => {
     const bookCard = document.createElement('article');
     bookCard.innerHTML = `
-        <a href="view_book.html?id=${book.book_id}" aria-label="Read more about this book">
-            <img src="img/book.webp" alt="${book.title}">
+    <a href="view_book.html?id=${book.book_id}" aria-label="Read more about this book">
+            <div class="book-img">
+                <img src="img/1.png" alt="${book.title}">   
+            </div>
+            <div class="book-text">
+                <h3>${book.title}</h3>
+                <p>${book.author}</p>
+            </div>  
         </a>
-        <div>
-            <h3><a href="view_book.html?id=${book.book_id}" aria-label="Read more about ${book.title}">${book.title}</a></h3>
-            <p>${book.author}</p>
-        </div>
     `;
     booksContainer.appendChild(bookCard);
 };
