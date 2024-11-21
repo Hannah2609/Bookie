@@ -9,50 +9,75 @@
     justify-content: center;
     align-items: center;
     z-index: 10;
+    
 
     .modal-content {
         background: var(--color-tertiary);
-        padding: 2rem;
+        padding: 1.8rem;
         border-radius: 0.625rem;
         width: 18rem;
         box-shadow:var(--box-shadow);
         position: relative;
 
-        h2 {
-            margin-bottom: 1.25rem;
-            font-size: 1.25rem;
+        @media (min-width: 798px) {
+            width: 25rem;
+            padding: 3rem;
         }
 
-        p {
-            margin-top: 0.5rem;
-            color: var(--color-primary-light);
+        #close-modal {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--color-primary);
+
+            @media (min-width: 798px) {
+                top: 1.5rem;
+                right: 1.5rem;
+            }
+    
+            #close-modal svg {
+                width: 24px;
+                height: 24px;
+            }
+        }
+
+        #modal-titles{
+            display: grid;
+            padding: 1rem;
+
+            @media (min-width: 798px) {
+                padding: 2rem;
+            }
+
+            h2 {
+                margin-bottom: 1.25rem;
+                font-size: 1.25rem;
+
+                @media (min-width: 798px) {
+                    font-size: 1.5rem;
+                }
+            }
+    
+            p {
+                margin-top: 0.5rem;
+                color: var(--color-primary-light);
+            }
         }
 
         .modal-buttons {
             display: flex;
-            justify-content: space-around;
+            justify-content:center;
+            gap: 1rem;
             margin-top: 2rem;
 
-            button {
-                background-color: #007bff;
-                color: white;
-                padding: 10px 15px;
-                border: none;
-                border-radius: 5px;
-                cursor: pointer;
-                font-size: 16px;
-                transition: background-color 0.3s ease;
+            button{
+                font-size: 0.7rem;
 
-                &:hover {
-                    background-color: #0056b3;
-                }
-
-                &.cancel {
-                    background-color: #f44336;
-
-                    &:hover {
-                        background-color: #d32f2f;
-                    }
+                @media (min-width:798px){
+                    font-size: 1rem;
                 }
             }
         }

@@ -8,13 +8,22 @@ const showLoanConfirmation = (bookID, bookTitle, bookAuthor) => {
     modal.id = 'loan-modal';
     modal.innerHTML = `
         <div class="modal-content">
-            <h2>Confirm Loan for 30 days</h2>
-            <h3>${bookTitle}</h3>
-            <h4>By: ${bookAuthor}</h4>
-            <p>E-book</p>
+            <div id="modal-header">
+                <button id="close-modal" aria-label="Close modal">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                        <path fill="currentColor" d="M18.3 5.71a1 1 0 0 0-1.42-1.42L12 9.59 7.12 4.7A1 1 0 1 0 5.7 6.12L10.59 11l-4.88 4.88a1 1 0 0 0 1.42 1.42L12 12.41l4.88 4.88a1 1 0 0 0 1.42-1.42L13.41 11l4.88-4.88z"/>
+                    </svg>
+                </button>
+            </div>
+            <div id="modal-titles">
+                <h2>Confirm Loan for 30 days</h2>
+                <h3>${bookTitle}</h3>
+                <h4>By: ${bookAuthor}</h4>
+                <p>E-book</p>
+            </div>
             <div class="modal-buttons">
-                <button id="cancel-loan" aria-label="Go back">Go back</button>
-                <button id="confirm-loan" aria-label="Loan book">Loan book</button>
+                <button class="border-btn" id="cancel-loan" aria-label="Go back">Go back</button>
+                <button class="filled-btn" id="confirm-loan" aria-label="Loan book">Loan book</button>
             </div>
         </div>
     `;
@@ -23,11 +32,12 @@ const showLoanConfirmation = (bookID, bookTitle, bookAuthor) => {
     document.body.appendChild(modal);
 
     // Add event listeners for confirmation and cancellation
+    document.querySelector('#close-modal').addEventListener('click', closeModal);
+    document.querySelector('#cancel-loan').addEventListener('click', closeModal);
     document.querySelector('#confirm-loan').addEventListener('click', () => {
         confirmLoan(bookID);
         closeModal();
     });
-    document.querySelector('#cancel-loan').addEventListener('click', closeModal);
 };
 
 // Close the modal
