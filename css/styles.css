@@ -24,6 +24,9 @@ a {
     text-decoration: none;
     color: var(--color-primary);
 }
+img {
+    max-width: 100%;
+}
 .hidden, #profileBtn.hidden, #adminBtn.hidden {
     display: none;
 }
@@ -80,7 +83,7 @@ header {
             }
             .burger-menu.close .line:nth-child(1) {
                 transform: rotate(45deg);
-                position: absolute;
+                position: fixed;
                 background-color: var(--color-secondary);
                 z-index: 10;
 
@@ -90,7 +93,7 @@ header {
             }
             .burger-menu.close .line:nth-child(3) {
                 transform: rotate(-45deg);
-                position: absolute;
+                position: fixed;
                 background-color: var(--color-secondary);
                 z-index: 10;
 
@@ -101,11 +104,9 @@ header {
                 align-items: center;
                 gap: 1rem;
                 .nav-links {
-                    opacity: 0; 
                     transform: translateX(100%); /* Slide out of view */
-                    visibility: hidden; /* Prevent interaction when hidden */
                     transition: transform 0.5s ease, opacity 0.5s ease;
-                    display: flex; 
+                    display: none; 
                     flex-direction: column;
                     justify-content: center;
                     align-items: center;
@@ -118,7 +119,9 @@ header {
                     background-color: var(--color-primary);
                 }
                 .nav-links.show {
+                    display: flex;
                     opacity: 1; 
+                    z-index: 1;
                     transform: translateX(0);
                     visibility: visible;
                     transition: transform 0.5s ease, opacity 0.5s ease;
@@ -132,10 +135,13 @@ header {
                 }
             }
         }
-        @media (min-width:1024px) {
-            padding-inline: 2rem;
-        }
     }
+    @media (min-width:768px) {
+        padding-inline: 3rem;
+    }
+    @media (min-width:1280px) {
+        padding-inline: 4rem;
+    }  
 }
 .home-page header {
     background-color: var(--color-secondary);
@@ -166,9 +172,12 @@ header {
         p {
             font-size: 1.1rem;
         }
+        
     }
-
-    @media (min-width:1024px) {
+    @media (min-width:768px) {
+        padding-left: 3rem;
+    }
+    @media (min-width:1280px) {
         padding-left: 4rem;
     } 
 
@@ -336,6 +345,7 @@ overflow: hidden;
     }
 } 
 
+
 /* INPUT */
 .input-group {
     display: flex;
@@ -385,7 +395,6 @@ overflow: hidden;
         top: -15px;
     }
 }
-
 
 
 /* BUTTONS */

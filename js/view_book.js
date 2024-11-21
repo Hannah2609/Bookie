@@ -15,20 +15,23 @@ const viewBook = (book) => {
 // Display the current book's information
 const displayBookInfo = (book) => {
     bookInfoSection.innerHTML = `
+        <div class="book-img">
         <img src="${book.cover}" alt="${book.title}">
+        </div>
         <section>
             <div id="titles">
                 <h1>${book.title}</h1>
                 <h2>${book.author}</h2>
                 <p>E-book</p>
             </div>
-            <div id="released">
-                <p>Released: ${book.publishing_year}</p>
+            <div id="publishing-info">
+                    <p>Released: ${book.publishing_year}</p>
+
+
+                    <p>Published by: ${book.publishing_company}</p>
+
             </div>
-            <div id="published_by">
-                <p>Published by: ${book.publishing_company}</p>
-            </div>
-            <button id="loan-btn">Loan Book</button>
+            <button id="loan-btn" class="filled-btn">Loan Book</button>
         </section>
     `;
 
@@ -71,14 +74,20 @@ const fetchBooksByAuthor = (authorName) => {
 // Display books by the same author in the DOM
 const displayAuthorBooks = (books) => {
     authorBooksSection.innerHTML = books.length > 0 ? `
-        <h3>More Books by ${books[0].author}</h3>
-        <div class="book-cards">
+        <h3 class="other-books-header">Other Books by ${books[0].author}</h3>
+        <div id="book-cards">
             ${books.map(book => `
-                <div class="book-card">
-                    <h4>${book.title}</h4>
-                    <p>${book.publishing_year}</p>
-                    <a href="view_book.html?id=${book.book_id}" class="view-book-btn">View Details</a>
-                </div>
+        <article>
+            <a href="view_book.html?id=${book.book_id}" aria-label="Read more about this book">
+            <div class="book-img">
+                <img src="img/1.png" alt="${book.title}">   
+            </div>
+            <div class="book-text">
+                <h3>${book.title}</h3>
+                <p>${book.author}</p>
+            </div>  
+        </a>
+        </article>
             `).join('')}
         </div>
     ` : `<p>No other books found by this author.</p>`;
