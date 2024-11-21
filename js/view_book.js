@@ -1,4 +1,5 @@
 import { baseUrl, handleAPIError } from './common.js';
+import { loanBook } from './loan_book.js';
 
 const bookInfoSection = document.querySelector('#book-info');
 const authorBooksSection = document.querySelector('#author-books');
@@ -27,9 +28,21 @@ const displayBookInfo = (book) => {
             <div id="published_by">
                 <p>Published by: ${book.publishing_company}</p>
             </div>
-            <button>Loan Book</button>
+            <button id="loan-btn">Loan Book</button>
         </section>
     `;
+
+    document.querySelector('#loan-btn').addEventListener('click', () => {
+        // Check if the user is logged in
+        const userID = sessionStorage.getItem("user_id");
+
+        if (!userID) {
+            alert("You must be logged in to loan a book.");
+            return;
+        }
+    
+        loanBook(bookID, book.title, book.author); 
+    });
 };
 
 // Fetch books by the same author

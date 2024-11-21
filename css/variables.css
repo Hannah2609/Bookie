@@ -3,10 +3,12 @@
 
 :root {
     --color-primary: #130f26;
+    --color-primary-light: #929292;
     --color-secondary: #F0EADD;
     --color-tertiary: #FBF8F3;
     --color-transparrent: transparrent;
     --color-semi-transparrent: rgba(19, 15, 38, 0.4);
+    --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     --color-error: #CF3738;
     --color-success: rgb(28, 129, 28);
 
