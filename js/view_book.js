@@ -1,5 +1,6 @@
 import { baseUrl, handleAPIError } from './common.js';
 import { loanBook } from './loan_book.js';
+import { fetchLoanHistory, displayLoanHistory } from './loan_history.js';
 
 const bookInfoSection = document.querySelector('#book-info');
 const authorBooksSection = document.querySelector('#author-books');
@@ -10,6 +11,20 @@ let bookID = new URLSearchParams(window.location.search).get('id');
 const viewBook = (book) => {
     displayBookInfo(book);
     fetchBooksByAuthor(book.author);
+
+        // Check if user is admin and fetch loan history
+        const userID = sessionStorage.getItem("user_id");
+        if (userID === "2679") { // Check if the user is admin
+            fetchLoanHistory(bookID)
+                .then(loans => displayLoanHistory(loans))
+                .catch(error => {
+                    loanHistorySection.innerHTML = `
+                        <h3>Error</h3>
+                        <p>Could not fetch loan history.</p>
+                        <p class="error">${error.message}</p>
+                    `;
+                });
+        };
 };
 
 // Display the current book's information
