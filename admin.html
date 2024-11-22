@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/admin.css">
     <script src="js/script.js" defer></script>
-    <script src="js/admin.js" type="module"></script>
+    <script src="js/adminOld.js" type="module"></script>
     <title>Admin profile</title>
 </head>
 <body>
@@ -44,7 +45,26 @@
     </header>
     <main>
         <section id="profile">
-            <div class="profile-info">
+            <div class="add-book">
+            </div>
+            <!-- Modal for adding a new author -->
+            <div id="addAuthorModal" class="modal hidden">
+                <!-- <div class="modal-content">
+                    <span id="closeModal" class="close-btn">&times;</span>
+                    <h2>Add New Author</h2>
+                    <form id="add-author-form">
+                        <div class="input-group">
+                            <label for="firstName">First Name</label>
+                            <input id="firstName" type="text" placeholder="Author's first name" required />
+                        </div>
+                        <div class="input-group">
+                            <label for="lastName">Last Name</label>
+                            <input id="lastName" type="text" placeholder="Author's last name" required />
+                        </div>
+                        <button type="button" id="addAuthorBtn">Add Author</button>
+                        <button type="button" id="goBackBtn">Go Back</button>
+                    </form>
+                </div> -->
             </div>
         </section>
     </main>

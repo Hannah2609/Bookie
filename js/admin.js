@@ -1,8 +1,13 @@
-import { baseUrl, handleAPIResponseError } from "./common.js";
+import { baseUrl, handleAPIError, handleAPIResponseError } from "./common.js";
 
 document.addEventListener("DOMContentLoaded", showAdminProfile);
 const admin = document.querySelector(".profile-info");
+const authorSearch = document.getElementById("authorSearch");
+const publisherSearch = document.getElementById("publisherSearch");
+const authorSuggestions = document.getElementById("authorSuggestions");
+const publisherSuggestions = document.getElementById("publisherSuggestions");
 
+let authors = [];
 
 function showAdminProfile() {
 const userId = sessionStorage.getItem("user_id");
@@ -55,7 +60,9 @@ if (!userId) {
                     e.preventDefault();
                     addBook(e);
                 })
-            // setupDynamicSuggestions();
+            document
+                .querySelector("#authorSearch")
+                .addEventListener("input", fetchAuthors);
         } else {
         handleAPIResponseError(data.error);
         }
@@ -64,21 +71,51 @@ if (!userId) {
 }
 }
 
+const fetchAuthors = () => {
+    fetch(`${baseUrl}/authors`)
+        .then((response) => response.json())
+        .then((data) => {
+        if (data) {
+          // Sort authors alphabetically by name
+            authors = data.sort((a, b) =>
+            a.author_name.localeCompare(b.author_name))
+            authorSuggestions.innerHTML = authors.map(author => `<li data-id="${author.author_id}">${author.author_name}</li>`).join("");
+            console.log("fetching authors");
+          // Render suggestions
+            searchSuggestion();
+        } else {
+            handleAPIResponseError(data.error);
+        }
+    })
+    .catch(handleAPIResponseError);
+};
 
-function searchSuggestion() {
-    const authorSearch = document.getElementById("authorSearch");
-    const publisherSearch = document.getElementById("publisherSearch");
-    const authorSuggestions = document.getElementById("authorSuggestions");
-    const publisherSuggestions = document.getElementById("publisherSuggestions");
-}
+// function searchSuggestion() {
+// console.log("suggestions")
+
+// authorSearch.addEventListener("input", () => {
+//     const authorSearchValue = authorSearch.value.trim();
+//     if (authorSearchValue.length > 1) {
+//             authorSuggestions.innerHTML = data`
+//                 <p>${author.author_name}</p>;
+//             `;
+//     }
+// });
+
+// }
+
+
+// ADD BOOK POST FUNCTION /
 
 function addBook(e) {
 
+// getting input values
 const authorId = e.target.authorSearch.value.trim();
 const publisherId = e.target.publisherSearch.value.trim();
 const title = e.target.title.value.trim();
 const year = e.target.publishingYear.value.trim();
 
+// append values to URL params
 const params = new URLSearchParams();
 params.append("title", title);
 params.append("author_id", authorId);
