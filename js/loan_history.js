@@ -12,7 +12,7 @@ export const fetchLoanHistory = (bookID) => {
 
 export const displayLoanHistory = (loans) => {
     const loanHistorySection = document.querySelector('#loan-history');
-    const loansPerPage = 10;
+    const loansPerPage = 8;
     let currentPage = 1;
 
     // Sort loans by loan_date (newest first)
