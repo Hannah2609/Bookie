@@ -1,4 +1,4 @@
-import { baseUrl, handleAPIResponseError } from "./common.js";
+import { baseUrl, handleAPIResponseError, showMessage } from "./common.js";
 
 const profile = document.querySelector(".profile-info");
 
@@ -7,31 +7,38 @@ let profileInfo = {};
 let userId = sessionStorage.getItem("user_id");
 console.log(`User id ${userId}`);
 
+
+
 document.addEventListener("DOMContentLoaded", () => {
-showProfile();
+    showProfile();
 
-document.addEventListener("click", handleClick);
+    document.addEventListener("click", handleClick);
 
-function handleClick(e) {
-    if (e.target && e.target.id === "editProfileBtn") {
-    toggleForm(true);
+    function handleClick(e) {
+        if (e.target && e.target.id === "editProfileBtn") {
+        editProfileForm(true);
+        };
+        
+        if (e.target && e.target.id === "cancelEditBtn") {
+        editProfileForm(false);
+        };
     }
-}
-
 });
 
-
-function toggleForm(enable) {
+// editProfile form with bolean parameter that activates editing or disables the form
+function editProfileForm(enable) {
     const formFields = document.querySelectorAll("#profile-form input");
     const saveBtn = document.querySelector("#saveBtn");
     const editBtn = document.querySelector("#editProfileBtn");
+    const cancelBtn = document.querySelector("#cancelEditBtn");
 
     formFields.forEach((field) => {
-        field.disabled = !enable; // Enable or disable fields
+        field.disabled = !enable; // Enable or disable fields if true or false
     });
 
-    saveBtn.style.display = enable ? "block" : "none"; // show or hide btns
-    editBtn.style.display = enable ? "none" : "block";
+    saveBtn.style.display = enable ? "block" : "none"; // show or hide btns if editProfileForm is true or false
+    editBtn.style.display = enable ? "none" : "block"; 
+    cancelBtn.style.display = enable ? "block" : "none";
 }
 
 function showProfile() {
@@ -52,6 +59,7 @@ function showProfile() {
                         <div class="btn-group">
                             <button class="filled-btn" onclick="signOut()">Sign out</button>
                             <button id="editProfileBtn" class="border-btn">Edit Profile</button>
+                            <button id="cancelEditBtn" class="border-btn">Cancel edit</button>
                         </div>
                     </div>
                     <h2 class="profile">Your information</h2>
@@ -73,9 +81,11 @@ function showProfile() {
                                 <label for="editBirth">Birthday</lavel>
                             </div>
                             <button id="saveBtn" class="filled-btn" type="submit" style="display: none">Save changes</button>
+                            <div id="messageContainer" class="hidden"></div>
                         </form>
                     </div>
                     `;
+                    document.querySelector("#cancelEditBtn").style.display = "none";
                     profileInfo = data;
                     document
                         .querySelector("#profile-form")
@@ -110,7 +120,7 @@ function updateProfile(userId) {
 
     // sennds message if trying to save changes without any made - TODO: maybe dissable btn until changes been made
     if (Object.keys(updatedProfileInfo).length === 0) {
-        alert("No changes made");
+        showMessage("No changes made", "error");
         return;
     }
 
@@ -121,8 +131,8 @@ function updateProfile(userId) {
         .then((response) => response.json())
         .then((data) => {
             if (data.status === "ok") {
-                alert("Update was successful");
-                toggleForm(false); // disable form after successfull submit
+                showMessage("Changes saved!", "success");
+                editProfileForm(false); // disable form after successfull submit
             } else {
                 handleAPIResponseError(data.error);
             }

@@ -12,7 +12,7 @@ const renderAuthor = (author) => {
     authorCard.innerHTML = `
         <a href="books_by_author.html?id=${author.author_id}" aria-label="See books by ${author.author_name}">
             <div id="author-card">
-                <h2>${author.author_name}</h2>
+                <h3>${author.author_name}</h3>
             </div>
         </a>
     `;

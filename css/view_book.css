@@ -124,7 +124,7 @@
         .pagination{
             display: flex;
             align-items: baseline;
-            justify-content: start;
+            justify-content: space-between;
             gap: 0.6rem;
 
             #page-number{
@@ -175,6 +175,7 @@
     padding: 4rem;
     display: flex;
     justify-content: center;
+    align-items: center;
     }
     section {
         display: flex;

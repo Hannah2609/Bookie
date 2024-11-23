@@ -4,6 +4,7 @@ import { fetchLoanHistory, displayLoanHistory } from './loan_history.js';
 
 const bookInfoSection = document.querySelector('#book-info');
 const authorBooksSection = document.querySelector('#author-books');
+const loanHistorySection = document.querySelector("#loan-history");
 
 let bookID = new URLSearchParams(window.location.search).get('id');
 
@@ -15,6 +16,7 @@ const viewBook = (book) => {
         // Check if user is admin and fetch loan history
         const userID = sessionStorage.getItem("user_id");
         if (userID === "2679") { // Check if the user is admin
+            loanHistorySection.classList.remove("hidden");
             fetchLoanHistory(bookID)
                 .then(loans => displayLoanHistory(loans))
                 .catch(error => {
@@ -24,14 +26,20 @@ const viewBook = (book) => {
                         <p class="error">${error.message}</p>
                     `;
                 });
-        };
+        } else {
+            loanHistorySection.classList.add("hidden");
+        }
 };
 
 // Display the current book's information
 const displayBookInfo = (book) => {
+
+ // checks if book.cover is an empty string and show placeholder instead
+const coverImage = book.cover && book.cover.trim() !== "" ? book.cover : "img/placeholder.png";
+
     bookInfoSection.innerHTML = `
         <div class="book-img">
-        <img src="${book.cover}" alt="${book.title}">
+        <img src="${coverImage}" alt="${book.title}">
         </div>
         <section>
             <div id="titles">
@@ -95,7 +103,7 @@ const displayAuthorBooks = (books) => {
         <article>
             <a href="view_book.html?id=${book.book_id}" aria-label="Read more about this book">
             <div class="book-img">
-                <img src="img/1.png" alt="${book.title}">   
+                <img src="img/placeholder.png" alt="${book.title}">   
             </div>
             <div class="book-text">
                 <h3>${book.title}</h3>
