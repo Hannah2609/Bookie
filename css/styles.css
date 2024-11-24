@@ -575,7 +575,6 @@ footer{
             gap: 1rem;
 
             @media (min-width: 798px) {
-                width: 2rem;
                 justify-content: end;
                 align-items: end;
             }
