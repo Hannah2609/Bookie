@@ -549,6 +549,7 @@ footer{
     background-color: var(--color-primary);
     color: var(--color-secondary);
     padding: 4rem 2rem;
+    margin-top: 4rem;
 
     @media (min-width:798px) {
         padding: 5rem 4rem;
