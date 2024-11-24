@@ -32,7 +32,7 @@ export const displayLoanHistory = (loans) => {
                 <div id="loan-list">
                     <ul>
                         ${loansToDisplay.map(loan => `
-                            <li><li><strong>User ID:</strong> ${loan.user_id} | <strong>Loan Date:</strong> ${loan.loan_date}</li>
+                            <li><strong>User ID:</strong> ${loan.user_id} | <strong>Loan Date:</strong> ${loan.loan_date}</li>
                         `).join('')}
                     </ul>
                 </div>
