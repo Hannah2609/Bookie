@@ -572,6 +572,10 @@ footer{
             flex-direction: column;
             gap: 0.5rem;
 
+            .contact-links{
+                color: var(--color-secondary);
+            }
+
             @media (min-width:798px) {
                 padding-left: 4rem;
             }
