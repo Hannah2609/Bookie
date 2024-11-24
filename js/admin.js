@@ -202,16 +202,16 @@ function authorModal(authorSearch, authorSuggestions) {
             </button>
         </div>
         <form id="add-author-form">
-        <h2>Add a new author</h2>
-        <div class="input-group">
-            <input id="firstName" type="text" placeholder="First name" required>
-            <label for="firstName">First Name *</label>
-        </div>
-        <div class="input-group">
-            <input id="lastName" type="text" placeholder="Last name" required>
-            <label for="lastName">Last Name *</label>
-        </div>
-        <button type="submit" class="filled-btn">Add new Author</button>
+            <h2>Add a new author</h2>
+            <div class="input-group">
+                <input id="firstName" type="text" placeholder="First name" required>
+                <label for="firstName">First Name *</label>
+            </div>
+            <div class="input-group">
+                <input id="lastName" type="text" placeholder="Last name" required>
+                <label for="lastName">Last Name *</label>
+            </div>
+            <button type="submit" class="filled-btn">Add new Author</button>
         </form>
     `;
 
@@ -272,12 +272,12 @@ function publisherModal(publisherSearch, publisherSuggestions) {
             </button>
         </div>
         <form id="add-publisher-form">
-        <h2>Add a new publisher</h2>
-        <div class="input-group">
-            <input id="name" type="text" placeholder="Publisher name" required>
-            <label for="name">Publisher name *</label>
-        </div>
-        <button type="submit" class="filled-btn">Add new publisher</button>
+            <h2>Add a new publisher</h2>
+            <div class="input-group">
+                <input id="name" type="text" placeholder="Publisher name" required>
+                <label for="name">Publisher name *</label>
+            </div>
+            <button type="submit" class="filled-btn">Add new publisher</button>
         </form>
     `;
 
