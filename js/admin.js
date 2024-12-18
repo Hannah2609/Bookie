@@ -1,8 +1,9 @@
-import { baseUrl, handleAPIResponseError } from "./common.js";
+import { baseUrl, handleAPIResponseError, showMessage } from "./common.js";
 
 document.addEventListener("DOMContentLoaded", showAdminProfile);
 const admin = document.querySelector(".add-book");
 
+// SHOW PROFILE
 function showAdminProfile() {
     const userId = sessionStorage.getItem("user_id");
     if (!userId) {
@@ -19,6 +20,7 @@ function showAdminProfile() {
                     <button id="adminSignOut" class="filled-btn" onclick="signOut()">Sign out</button>
                 </div>
                 <h2>Add a New Book</h2>
+                <span id="messageContainer-main" class="hidden"></span>
                 <form id="add-book-form">
                     <div class="input-group">
                     <input id="title" type="text" placeholder="Book title" required>
@@ -57,6 +59,9 @@ function showAdminProfile() {
     }
     }
 
+
+
+// ADD BOOK
 function addBook() {
     const authorSearch = document.getElementById("authorSearch");
     const publisherSearch = document.getElementById("publisherSearch");
@@ -103,6 +108,7 @@ function addBook() {
         }
     });
 
+
     // Open New Author Modal
     document.getElementById("addAuthorBtn").addEventListener("click", () => {
         authorModal(authorSearch, authorSuggestions);
@@ -112,7 +118,6 @@ function addBook() {
     document.getElementById("addPublisherBtn").addEventListener("click", () => {
         publisherModal(publisherSearch, publisherSuggestions);
     });
-
 
 
     // Publisher search suggestions
@@ -177,17 +182,22 @@ function addBook() {
         .then((response) => response.json())
         .then((data) => {
             if (data.book_id) {
-            alert("Book added successfully!");
+            showMessage("Book added successfully!", "succes", "main");
             document.getElementById("add-book-form").reset();
             } else {
-            handleAPIResponseError(data.error);
+                showMessage(data.error, "error", "main");            
             }
         })
-        .catch(handleAPIResponseError);
+        .catch(error => {
+            console.error(error);
+            showMessage("Failed to add book", "error", 2000, "main");
+        });
     });
 }
 
 
+
+// ADD AUTHOR
 
 // Open add author modal
 function authorModal(authorSearch, authorSuggestions) {
@@ -211,6 +221,7 @@ function authorModal(authorSearch, authorSuggestions) {
                 <input id="lastName" type="text" placeholder="Last name" required>
                 <label for="lastName">Last Name *</label>
             </div>
+            <span id="messageContainer-author" class="hidden"></span>
             <button type="submit" class="filled-btn">Add new Author</button>
         </form>
     `;
@@ -228,8 +239,7 @@ function authorModal(authorSearch, authorSuggestions) {
         addNewAuthor(firstName, lastName, modal, authorSearch, authorSuggestions);
     });
 }
-// Handle add author post request
-// maybe add a message before closing modal, that author added
+// POST new author
 function addNewAuthor(firstName, lastName, modal, authorSearch, authorSuggestions) {
     const params = new URLSearchParams();
     params.append("first_name", firstName);
@@ -243,21 +253,25 @@ function addNewAuthor(firstName, lastName, modal, authorSearch, authorSuggestion
         .then((data) => {
         if (data.author_id) {
             console.log(`added author: ${firstName} ${lastName} with ${data.author_id}`);
-
+            showMessage(`Added author: ${firstName} ${lastName}`, "success", 2000, "author");
             // adding the new author to search field
             authorSearch.value = `${firstName} ${lastName}`;
             authorSearch.dataset.id = data.author_id;
             authorSuggestions.classList.add("hidden"); 
             closeModal(modal);
         } else {
-            handleAPIResponseError(data.error);
+            showMessage(data.error, "error", "author");
         }
         })
         .catch((error) => {
         console.error(error);
-        alert("Failed to add author.");
+        showMessage("Failed to add author.", "error", "author");
         });
 }
+
+
+
+// ADD PUBLISHER
 
 // Open add publisher modal
 function publisherModal(publisherSearch, publisherSuggestions) {
@@ -277,6 +291,7 @@ function publisherModal(publisherSearch, publisherSuggestions) {
                 <input id="name" type="text" placeholder="Publisher name" required>
                 <label for="name">Publisher name *</label>
             </div>
+            <span id="messageContainer-publisher" class="hidden"></span>
             <button type="submit" class="filled-btn">Add new publisher</button>
         </form>
     `;
@@ -293,9 +308,7 @@ function publisherModal(publisherSearch, publisherSuggestions) {
         addNewPublisher(name, modal, publisherSearch, publisherSuggestions);
     });
 }
-
-// Handle add publisher post request
-// maybe add a message before closing modal, that publisher added
+// POST new publisher
 function addNewPublisher(name, modal, publisherSearch, publisherSuggestions) {
 
     const params = new URLSearchParams();
@@ -309,22 +322,21 @@ function addNewPublisher(name, modal, publisherSearch, publisherSuggestions) {
         .then((data) => {
         if (data.publisher_id) {
             console.log(`added publisher: ${name} with ${data.publisher_id}`);
-
+            showMessage(`Added publisher: ${name}`, "success", "publisher");            
             // adding the new publisher to search field
             publisherSearch.value = `${name}`;
             publisherSearch.dataset.id = data.publisher_id;
             publisherSuggestions.classList.add("hidden"); 
             closeModal(modal);
         } else {
-            handleAPIResponseError(data.error);
+            showMessage(data.error, "error", "publisher");
         }
         })
         .catch((error) => {
         console.error(error);
-        alert("Failed to add publisher.");
+        showMessage("Failed to add publisher.", "error", "publisher");
         });
 }
-
 
 
 function closeModal(modal) {

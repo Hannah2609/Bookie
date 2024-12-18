@@ -35,7 +35,7 @@ const viewBook = (book) => {
 const displayBookInfo = (book) => {
 
  // checks if book.cover is an empty string and show placeholder instead
-const coverImage = book.cover && book.cover.trim() !== "" ? book.cover : "img/placeholder.png";
+const coverImage = book.cover && book.cover.trim() !== "" ? book.cover : "img/placeholder.webp";
 
     bookInfoSection.innerHTML = `
         <div class="book-img">
@@ -103,7 +103,7 @@ const displayAuthorBooks = (books) => {
         <article>
             <a href="view_book.html?id=${book.book_id}" aria-label="Read more about this book">
             <div class="book-img">
-                <img src="img/placeholder.png" alt="${book.title}">   
+                <img src="img/placeholder.webp" alt="${book.title}">   
             </div>
             <div class="book-text">
                 <h3>${book.title}</h3>

@@ -234,7 +234,7 @@ overflow: hidden;
     }
 
     .text-box {
-        background-image: url('../img/formbg2.png');
+        background-image: url('../img/formbg2.webp');
         background-size: cover;
         background-repeat: no-repeat;
         position: relative;
@@ -531,18 +531,19 @@ overflow: hidden;
 
 
 /* ERROR AND SUCCESS MESSAGES */
-
-#messageContainer {
-    padding: 0.5rem 0;
+#messageContainer-main, #messageContainer-author, #messageContainer-publisher {
+    padding: 0;
     color: var(--color-success);
-    font-size: 1.2rem;
+    font-size: 1rem;
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
 }
 
-#messageContainer.error {
+#messageContainer-main.error, #messageContainer-author.error, #messageContainer-publisher.error {
     color: var(--color-error); 
 }
+
+
 
 /* FOOTER */
 footer{

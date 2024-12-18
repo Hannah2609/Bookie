@@ -10,7 +10,7 @@ const renderBook = (book) => {
     bookCard.innerHTML = `
     <a href="view_book.html?id=${book.book_id}" aria-label="Read more about this book">
             <div class="book-img">
-                <img src="img/placeholder.png" alt="${book.title}">   
+                <img src="img/placeholder.webp" alt="${book.title}">   
             </div>
             <div class="book-text">
                 <h3>${book.title}</h3>

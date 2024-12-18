@@ -1,8 +1,8 @@
-import { baseUrl } from './common.js';
+import { baseUrl, showMessage } from './common.js';
 
 // Show the loan confirmation modal
 const showLoanConfirmation = (bookID, bookTitle, bookAuthor) => {
-    const modal = document.createElement('dialog'); // Create a <dialog> element
+    const modal = document.createElement('dialog'); 
     modal.id = 'modal-content';
     modal.innerHTML = `
         <div>
@@ -18,6 +18,7 @@ const showLoanConfirmation = (bookID, bookTitle, bookAuthor) => {
             <h4>By: ${bookAuthor}</h4>
             <p>E-book</p>
         </div>
+        <span id="messageContainer-main" class="hidden"></span>
         <div class="modal-buttons">
             <button class="border-btn" id="cancel-loan" aria-label="Go back">Go back</button>
             <button class="filled-btn" id="confirm-loan" aria-label="Loan book">Loan book</button>
@@ -38,8 +39,8 @@ const showLoanConfirmation = (bookID, bookTitle, bookAuthor) => {
 // Close the modal
 const closeModal = (modal) => {
     if (modal) {
-        modal.close(); // Use the .close() method for <dialog>
-        modal.remove(); // Remove the element from the DOM
+        modal.close(); 
+        modal.remove(); 
     }
 };
 
@@ -55,13 +56,13 @@ const confirmLoan = (bookID, bookTitle, modal) => {
             if (data.status === "ok") {
                 loanSuccess(bookTitle, modal); // Update modal on success
             } else if (data.error === "This user has still this book on loan") {
-                alert("You have already loaned this book within the last 30 days.");
+                showMessage("You have already loaned this book within the last 30 days.", "error", "main");
             } else {
-                alert("An unexpected error occurred. Please try again later.");
+                showMessage("An unexpected error occurred. Please try again later.", "error", "main" );
             }
         })
         .catch((error) => {
-            alert(`An error occurred while trying to loan the book: ${error.message}`);
+            showMessage(`An error occurred while trying to loan the book: ${error.message}`, "error", "main");
         });
 };
 
