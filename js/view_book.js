@@ -96,10 +96,15 @@ const fetchBooksByAuthor = (authorName) => {
 
 // Display books by the same author in the DOM
 const displayAuthorBooks = (books) => {
-    authorBooksSection.innerHTML = books.length > 0 ? `
+
+    // Convert bookID to number for comparison
+    const currentBookId = parseInt(bookID);
+    const otherBooks = books.filter(book => book.book_id !== currentBookId);
+
+    authorBooksSection.innerHTML = otherBooks.length > 0 ? `
         <h3 class="other-books-header">Other Books by ${books[0].author}</h3>
         <div id="book-cards">
-            ${books.map(book => `
+            ${otherBooks.map(book => `
         <article>
             <a href="view_book.html?id=${book.book_id}" aria-label="Read more about this book">
             <div class="book-img">
@@ -113,7 +118,13 @@ const displayAuthorBooks = (books) => {
         </article>
             `).join('')}
         </div>
-    ` : `<p>No other books found by this author.</p>`;
+        
+    ` :  
+        `<h3 class="other-books-header">Other Books by ${books[0].author}</h3> 
+        <div id="book-cards">
+        <p>No other books found by this author.</p>
+        </div>
+        `;
 };
 
 // Fetch the current book details
