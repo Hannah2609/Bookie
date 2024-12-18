@@ -1,4 +1,4 @@
-import { baseUrl, handleAPIError } from './common.js';
+import { baseUrl, handleAPIError, showMessage } from './common.js';
 import { loanBook } from './loan_book.js';
 import { fetchLoanHistory, displayLoanHistory } from './loan_history.js';
 
@@ -54,7 +54,10 @@ const coverImage = book.cover && book.cover.trim() !== "" ? book.cover : "img/pl
                     <p>Published by: ${book.publishing_company}</p>
 
             </div>
+            <div>
             <button id="loan-btn" class="filled-btn">Loan Book</button>
+            <span id="messageContainer-main" class="hidden"></span>
+            </div>
         </section>
     `;
 
@@ -63,7 +66,7 @@ const coverImage = book.cover && book.cover.trim() !== "" ? book.cover : "img/pl
         const userID = sessionStorage.getItem("user_id");
 
         if (!userID) {
-            alert("You must be logged in to loan a book.");
+            showMessage("You must be logged in to loan a book.", "error", "main");
             return;
         }
     
