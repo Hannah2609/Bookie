@@ -81,7 +81,7 @@ function showProfile() {
                                 <label for="editBirth">Birthday</lavel>
                             </div>
                             <button id="saveBtn" class="filled-btn" type="submit" style="display: none">Save changes</button>
-                            <div id="messageContainer" class="hidden"></div>
+                            <div id="messageContainer-main" class="hidden"></div>
                         </form>
                     </div>
                     `;
@@ -120,7 +120,7 @@ function updateProfile(userId) {
 
     // sennds message if trying to save changes without any made - TODO: maybe dissable btn until changes been made
     if (Object.keys(updatedProfileInfo).length === 0) {
-        showMessage("No changes made", "error");
+        showMessage("No changes made", "error", "main");
         return;
     }
 
@@ -131,7 +131,7 @@ function updateProfile(userId) {
         .then((response) => response.json())
         .then((data) => {
             if (data.status === "ok") {
-                showMessage("Changes saved!", "success");
+                showMessage("Changes saved!", "success", "main");
                 editProfileForm(false); // disable form after successfull submit
             } else {
                 handleAPIResponseError(data.error);
